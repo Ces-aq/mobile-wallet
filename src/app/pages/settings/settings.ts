@@ -6,6 +6,7 @@ import {
 	NavController,
 	Platform,
 } from "@ionic/angular";
+import { Store } from "@ngrx/store";
 
 import { Subject } from "rxjs";
 
@@ -15,6 +16,11 @@ import { PinCodeComponent } from "@/components/pin-code/pin-code";
 import { SettingsDataProvider } from "@/services/settings-data/settings-data";
 
 import * as constants from "@/app/app.constants";
+import * as fromRoot from "@/app/reducers/settings";
+
+// Redux Actions
+import { SET } from "@/app/actions/settings";
+
 import { CustomNetworkCreateModal } from "@/app/modals/custom-network-create/custom-network-create";
 import { PinCodeModal } from "@/app/modals/pin-code/pin-code";
 import { UserDataProvider } from "@/services/user-data/user-data";
@@ -52,6 +58,7 @@ export class SettingsPage implements OnInit, OnDestroy {
 		private modalCtrl: ModalController,
 		private inAppBrowser: InAppBrowser,
 		private userDataProvider: UserDataProvider,
+		public store: Store<fromRoot.State>,
 	) {
 		this.availableOptions = this.settingsDataProvider.AVALIABLE_OPTIONS;
 		this.currentWallet = this.userDataProvider.currentWallet;
@@ -126,6 +133,10 @@ export class SettingsPage implements OnInit, OnDestroy {
 	private clearData() {
 		this.settingsDataProvider.clearData();
 		this.navCtrl.navigateRoot("/intro");
+	}
+
+	onSettingsChange(field: string, value: string) {
+		this.store.dispatch(SET(field, value));
 	}
 
 	onUpdate() {
