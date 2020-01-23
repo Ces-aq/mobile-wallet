@@ -2,7 +2,7 @@ import { ActionTypes } from "../actions/settings";
 import { ActionModel } from "../models/action";
 import { UserSettings } from "../models/settings";
 
-export const settings = new UserSettings();
+const settings = new UserSettings();
 
 export interface State {
 	settings;
@@ -14,7 +14,7 @@ export function settingsReducer(state = settings, action: ActionModel) {
 		case ActionTypes.SET: {
 			state[payload.field] = payload.value;
 
-			console.log(state);
+			console.log("SET Action Dispatched >>>", { state, action });
 			return state;
 		}
 		default:

@@ -18,6 +18,7 @@
 				<ion-select
 					[(ngModel)]="currentSettings.language"
 					(ngModelChange)="onUpdate()"
+					(ionChange)="onSettingsChange('language', currentSettings.language)"
 					cancelText="{{ 'CANCEL' | translate }}"
 				>
 					<ion-select-option
@@ -37,6 +38,7 @@
 				<ion-select
 					[(ngModel)]="currentSettings.currency"
 					(ngModelChange)="onUpdate()"
+					(ionChange)="onSettingsChange('currency', currentSettings.currency)"
 					cancelText="{{ 'CANCEL' | translate }}"
 				>
 					<ion-select-option
@@ -56,6 +58,7 @@
 				<ion-select
 					[(ngModel)]="currentSettings.wordlistLanguage"
 					(ngModelChange)="onUpdate()"
+					(ionChange)="onSettingsChange('wordlistLanguage', currentSettings.wordlistLanguage)"
 					cancelText="{{ 'CANCEL' | translate }}"
 				>
 					<ion-select-option
@@ -100,6 +103,7 @@
 				<ion-toggle
 					[(ngModel)]="currentSettings.darkMode"
 					(ngModelChange)="onUpdate()"
+					(ionChange)="onSettingsChange('darkmode', currentSettings.darkMode)"
 				></ion-toggle>
 			</ion-item>
 		</ion-item-group>
