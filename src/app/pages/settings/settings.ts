@@ -16,10 +16,10 @@ import { PinCodeComponent } from "@/components/pin-code/pin-code";
 import { SettingsDataProvider } from "@/services/settings-data/settings-data";
 
 import * as constants from "@/app/app.constants";
-import * as fromRoot from "@/app/reducers/settings";
+import * as fromRoot from "@/app/store/settings/settings.reducer";
 
 // Redux Actions
-import { SET } from "@/app/actions/settings";
+import { SET } from "@/app/store/settings/settings.actions";
 
 import { CustomNetworkCreateModal } from "@/app/modals/custom-network-create/custom-network-create";
 import { PinCodeModal } from "@/app/modals/pin-code/pin-code";

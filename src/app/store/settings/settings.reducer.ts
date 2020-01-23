@@ -1,6 +1,6 @@
-import { ActionTypes } from "../actions/settings";
-import { ActionModel } from "../models/action";
-import { UserSettings } from "../models/settings";
+import { ActionModel } from "../../models/action";
+import { UserSettings } from "../../models/settings";
+import { ActionTypes } from "./settings.actions";
 
 const settings = new UserSettings();
 
